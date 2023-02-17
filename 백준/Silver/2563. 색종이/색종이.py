@@ -8,7 +8,7 @@ for _ in range(n):
     s,e  = list(map(int,input().split()))
     for j in range(e, e + 10):
         for i in range(s,s+10):
-            board[100-j][i] = 1
+            board[j][i] = 1
 
 
 
