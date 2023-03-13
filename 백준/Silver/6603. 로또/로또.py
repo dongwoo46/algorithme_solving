@@ -2,7 +2,7 @@
 
 def backtracking(v):
     if v == 6:
-        print(' '.join(map(str,result)))
+        print(*result)
     else:
         for i in range(1,k+1):
             if not visited[i]:
