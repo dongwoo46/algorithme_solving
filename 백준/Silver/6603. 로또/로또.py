@@ -1,23 +1,32 @@
-def f(idx, num):
-    if idx == 6:   #하나의 부분집합 완성
-        print(*result)
-        return
 
 
-    for i in range(num, k):
-        if not visited[i]:
-            result[idx] = s[i]
-            visited[i] = 1
-            f(idx+1,i+1)
-            visited[i] = False
-            
+def backtracking(v):
+    if v == 6:
+        print(' '.join(map(str,result)))
+    else:
+        for i in range(1,k+1):
+            if not visited[i]:
+                if result:
+                    if result[-1] < arr[i]:
+                        visited[i] = 1
+                        result.append(arr[i])
+                        backtracking(v+1)
+                        visited[i] = 0
+                        result.pop()
+                else:
+                    visited[i] = 1
+                    result.append(arr[i])
+                    backtracking(v + 1)
+                    visited[i] = 0
+                    result.pop()
+
 while True:
-    list1 = list(map(int,input().split()))
-    k = list1[0]
-    if k == 0:
-        exit()
-    s = list1[1:]
-    visited = [0] * k
-    result = [0] * 6
-    f(0,0)
+    arr = list(map(int,input().split()))
+    k = arr[0]
+    s = arr[1:]
+    visited = [0]*(k+1)
+    result = []
+    if k> len(s) or k == 0:
+        break
+    backtracking(0)
     print()
