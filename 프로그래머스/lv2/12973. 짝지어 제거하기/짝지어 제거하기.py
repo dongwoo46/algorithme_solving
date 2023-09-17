@@ -17,5 +17,5 @@ def solution(s):
     else:
         answer = 0
         
-
+    k =1
     return answer
